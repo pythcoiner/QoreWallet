@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-set(BIN CoreWallet)
+set(BIN QoreWallet)
 project(${BIN} VERSION 0.0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -20,6 +20,8 @@ set(SOURCES
     src/controller.cpp
     src/initexecutor.cpp
     src/panel.cpp
+    src/config.cpp
+    src/wallet.cpp
 
 )
 
@@ -48,6 +50,7 @@ add_dependencies(${BIN}
     core_interface
     bitcoin_node
     bitcoin_wallet
+    bitcoin_common
 )
 
 target_include_directories(${BIN}
@@ -63,6 +66,7 @@ target_link_libraries(${BIN}
     core_interface 
     bitcoin_node 
     bitcoin_wallet
+    bitcoin_common
 )
 
 set_target_properties(${BIN} PROPERTIES

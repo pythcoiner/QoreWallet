@@ -1,6 +1,8 @@
 #include "common/args.h"
-#include <QApplication>
+#include "config.h"
 #include "controller.h"
+#include "wallet.h"
+#include <QApplication>
 
 // bitcoin/src/common/system.cpp
 void SetupEnvironment();
@@ -9,6 +11,13 @@ void SetupEnvironment();
 const std::function<std::string(const char*)> G_TRANSLATION_FUN = nullptr;
 
 int main(int argc, char *argv[]) {
+    auto initStatus = Config::init();
+    if (initStatus.isErr()) {
+        std::cout << "Fail to init ConfigManager!";
+        return 1;
+    }
+    std::cout << "ConfigManager initialized.\n";
+
     SetupEnvironment();
 
     QApplication app(argc, argv);

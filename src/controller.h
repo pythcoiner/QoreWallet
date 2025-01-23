@@ -1,11 +1,11 @@
 #pragma once
 
 #include "init.h"
+#include "initexecutor.h"
 #include "interfaces/chain.h"
 #include "interfaces/init.h"
 #include "interfaces/node.h"
 #include "node/context.h"
-#include "initexecutor.h"
 #include <QApplication>
 #include <QPointer>
 #include <qmetaobject.h>
